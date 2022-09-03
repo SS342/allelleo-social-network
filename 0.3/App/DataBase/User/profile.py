@@ -2,6 +2,8 @@ import sqlite3
 import os
 from datetime import date
 
+# from DataBase.User.users import UsersDataBase
+
 all_sex = {
     '0': 'Not stated',
     '1': 'Male',
@@ -99,5 +101,22 @@ class UserProfileDataBase(object):
         else:
             return 0
 
-    def update_profile(self, user_id, data):
-        pass
+    def update_profile(self, data, user):
+        if not (data['email'] == user.email):
+            from DataBase.User.users import UsersDataBase
+            UsersDataBase().user_update_email(user.id, data['email'])
+        if not (data['name'] == user.name):
+            from DataBase.User.users import UsersDataBase
+            UsersDataBase().user_update_name(user.id, data['name'])
+        if not (data['surname'] == user.surname):
+            from DataBase.User.users import UsersDataBase
+            UsersDataBase().user_update_surname(user.id, data['surname'])
+        if not (data['nickname'] == user.nickname):
+            from DataBase.User.users import UsersDataBase
+            UsersDataBase().user_update_nickname(user.id, data['nickname'])
+
+        birth_date = data['birth_date']
+        about = data['about']
+        sql = f"UPDATE profiles SET birth_date='{birth_date}', description='{about}' WHERE user_id={data['user_id']}"
+        self.__cursor__.execute(sql)
+        self.__connection__.commit()

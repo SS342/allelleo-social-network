@@ -4,6 +4,10 @@ import os
 from DataBase.User.profile import UserProfileDataBase
 
 
+def update_profile(data, user):
+    UserProfileDataBase().update_profile(data, user)
+
+
 class User(object):
     """Создает объкт пользователя с его данными чтобы можно было легко их юзать в шаблонах и др"""
 
@@ -29,8 +33,6 @@ class User(object):
     def get_profile_data(self):
         return UserProfileDataBase().get_user_profile_by_id(self.id)
 
-    def update_profile(self, data):
-        UserProfileDataBase().update_user_profile(data)
 
 class AnonymousUser(object):
     def __init__(self):
@@ -143,3 +145,22 @@ class UsersDataBase(object):
         else:
             return 0
 
+    def user_update_email(self, user_id, email):
+        sql = f"UPDATE users SET email = '{email}' WHERE id = {user_id}"
+        self.__cursor__.execute(sql)
+        self.__connection__.commit()
+
+    def user_update_name(self, user_id, name):
+        sql = f"UPDATE users SET name = '{name}' WHERE id = {user_id}"
+        self.__cursor__.execute(sql)
+        self.__connection__.commit()
+
+    def user_update_surname(self, user_id, surname):
+        sql = f"UPDATE users SET surname = '{surname}' WHERE id = {user_id}"
+        self.__cursor__.execute(sql)
+        self.__connection__.commit()
+
+    def user_update_nickname(self, user_id, nickname):
+        sql = f"UPDATE users SET nickname = '{nickname}' WHERE id = {user_id}"
+        self.__cursor__.execute(sql)
+        self.__connection__.commit()

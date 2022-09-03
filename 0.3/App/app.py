@@ -6,7 +6,7 @@ import sqlite3
 
 from DataBase.User.profile import UserProfileDataBase
 from Logs.logs import Logs
-from DataBase.User.users import UsersDataBase, User
+from DataBase.User.users import UsersDataBase, User, update_profile
 from Defense.passwords import Passwords
 from Defense.token import generate_token
 from API.api import api
@@ -99,8 +99,9 @@ def my_profile_edit():
             'email': flask.request.form['email'],
             'about': flask.request.form['about']
         }
-        print(data)
 
+        print(data)
+        update_profile(data, current_user)
 
     return flask.render_template('user/settings.html', user=current_user)
 

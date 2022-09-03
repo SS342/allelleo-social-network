@@ -100,7 +100,7 @@ def my_profile_edit():
             'about': flask.request.form['about']
         }
 
-        print(data)
+        #print(data)
         update_profile(data, current_user)
 
     return flask.render_template('user/settings.html', user=current_user)

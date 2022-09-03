@@ -5,5 +5,7 @@
     <file url="file://$PROJECT_DIR$/0.2/App/DataBase/users.py" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/0.3/App/DataBase/User/profile.py" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/0.3/App/DataBase/User/users.py" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/0.4/App/DataBase/User/following_peoples.py" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/0.4/App/DataBase/User/profile.py" dialect="GenericSQL" />
   </component>
 </project>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="auth" uuid="cda906da-a0af-434e-b3f1-eb67b5abe0ad">
+    <data-source source="LOCAL" name="user_following_to_user" uuid="2638b16e-c56f-4deb-b34a-c02784b44faa">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\alex2\Desktop\Networks\0.3\App\dbs\auth.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\alex2\Desktop\Networks\0.4\App\dbs\user_following_to_user.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
@@ -13,11 +13,11 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="profiles" uuid="ea4a2006-2478-4d59-9332-7e5c92d8f011">
+    <data-source source="LOCAL" name="auth" uuid="dbf22c08-fad8-4615-a60c-f4bda84772e9">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\alex2\Desktop\Networks\0.3\App\dbs\profiles.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\alex2\Desktop\Networks\0.4\App\dbs\auth.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

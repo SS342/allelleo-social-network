@@ -1,4 +1,5 @@
 from rich.console import Console
+
 console = Console()
 
 config = {
@@ -42,7 +43,10 @@ config = {
     "Logs": {},
 }
 
+
 def LogConfig():
-    console.log(f"Author: {config['information']['author']} ~ Project version: {config['information']['project_version']}")
+    console.log(
+        f"Author: {config['information']['author']} ~ Project version: {config['information']['project_version']}")
+
 
 LogConfig()

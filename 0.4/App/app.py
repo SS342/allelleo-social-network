@@ -13,8 +13,10 @@ from Defense.token import generate_token
 from API.api import api
 from Configs.app_config import config
 
-print(UserFollowingToUserDataBase().get_following(0))
+UserFollowingToUserDataBase()
 UserProfileDataBase()
+UsersDataBase()
+Logs()
 
 app = flask.Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -28,10 +30,8 @@ app.config['MAX_COOKIE_SIZE'] = config['app']['MAX_COOKIE_SIZE']
 
 app.register_blueprint(api, url_prefix="/api/v1")
 
-# INSERT INTO users (id, nickname, email, name, surname, hashed_passwords) VALUES (0, 'allelleo', 'alex2005ov@gmail.com', 'Alexey', 'Ovchinnikov', 'fc300febae3b9a55723b7aecab31ce4469af3ad26501a982e416c6ac3471bb06:5fee1bad50e54831b1b3d9ee3c814962')
 
-UsersDataBase()
-Logs()
+# INSERT INTO users (id, nickname, email, name, surname, hashed_passwords) VALUES (0, 'allelleo', 'alex2005ov@gmail.com', 'Alexey', 'Ovchinnikov', 'fc300febae3b9a55723b7aecab31ce4469af3ad26501a982e416c6ac3471bb06:5fee1bad50e54831b1b3d9ee3c814962')
 
 
 @login_manager.user_loader
@@ -107,9 +107,12 @@ def my_profile_edit():
 
     return flask.render_template('user/settings.html', user=current_user)
 
+
 @app.route('/my-profile/connections')
 def my_profile_connections():
-    return flask.render_template('user/my-profile-connections.html', user=current_user, following_list=UserFollowingToUserDataBase().get_following(current_user.id))
+    return flask.render_template('user/my-profile-connections.html', user=current_user,
+                                 following_list=UserFollowingToUserDataBase().get_following(current_user.id))
+
 
 HOST = config['app']['HOST']
 PORT = config['app']['PORT']

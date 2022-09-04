@@ -12,7 +12,7 @@ class User(object):
     """Создает объкт пользователя с его данными чтобы можно было легко их юзать в шаблонах и др"""
 
     def __init__(self, id, nickname, name, surname, email, hashed_password,
-                 followers, following, avatar, posts):
+                 followers, following, avatar, posts, token):
         self.id = id
         self.nickname = nickname
         self.name = name
@@ -25,6 +25,7 @@ class User(object):
         self.is_active = True  # must have this
         self.avatar = avatar
         self.posts = posts
+        self.token = token
 
     def get_id(self):
         return int(self.id)
@@ -87,14 +88,16 @@ class UsersDataBase(object):
                 'posts': res[6],
                 'followers': res[7],
                 'following': res[8],
-                'avatar': res[9]
+                'avatar': res[9],
+                'token': res[11],
             }
 
             # print(data)
             return User(id=data['id'], nickname=data['nickname'], email=data['email'], name=data['name'],
                         surname=data['surname'],
                         hashed_password=data['hashed_password'], posts=data['posts'],
-                        followers=data['followers'], following=data['following'], avatar=data['avatar'])
+                        followers=data['followers'], following=data['following'], avatar=data['avatar'],
+                        token=data['token'])
         else:
             return 0
 
@@ -110,15 +113,16 @@ class UsersDataBase(object):
                 'name': res[3],
                 'surname': res[4],
                 'hashed_password': res[5],
-                'posts': res[8],
-                'followers': res[9],
-                'following': res[10],
-                'avatar': res[11]
+                'posts': res[6],
+                'followers': res[7],
+                'following': res[8],
+                'avatar': res[9],
+                'token': res[10],
             }
             return User(id=data['id'], nickname=data['nickname'], email=data['email'], name=data['name'],
                         surname=data['surname'],
                         hashed_password=data['hashed_password'], posts=data['posts'],
-                        followers=data['followers'], following=data['following'], avatar=data['avatar'])
+                        followers=data['followers'], following=data['following'], avatar=data['avatar'], token=data['token'])
         else:
             return 0
 

@@ -54,4 +54,7 @@ class UserFollowingToUserDataBase(object):
         pass
 
     def delete_following(self, user_id, user_following_id):
-        pass
+        print(f"DELETE {user_id} ~ {user_following_id}")
+        sql = f"DELETE FROM user_following_to_user WHERE user_id = {user_id} AND to_user = {user_following_id}"
+        self.__cursor__.execute(sql)
+        self.__connection__.commit()

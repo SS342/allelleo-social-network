@@ -118,7 +118,7 @@
                             </div>
                             <!-- Button -->
                             <div class="ms-md-auto d-flex">
-                                <button class="btn btn-danger-soft btn-sm mb-0 me-2"> Remove</button>
+                                <button class="btn btn-danger-soft btn-sm mb-0 me-2" onclick="Delete_following({{user.id}}, {{following_user.id}}, '{{user.token}}')"> Remove</button>
                                 <button class="btn btn-primary-soft btn-sm mb-0"> Message</button>
                             </div>
                         </div>
@@ -475,6 +475,7 @@
             <!-- Container END -->
 
 </main>
+<script src="../../static/js/my-profile-connections.js/delete_following.js"></script>
 <!-- **************** MAIN CONTENT END **************** -->
 
 {% endblock %}
